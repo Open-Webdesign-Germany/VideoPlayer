@@ -1,31 +1,38 @@
-<head>
-  <link href="https://vjs.zencdn.net/7.8.2/video-js.css" rel="stylesheet" />
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-</head>
+
+<link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
+<style>
+  #my-video{
+    width: 100%;
+    height: 100%;
+  }
+  body{
+    margin: 0px;
+  }
+  </style>
+  <!--Player Style-->
+  <link rel="stylesheet" href="player.css"/>
+
+<body>
+<video  id="my-video"
+  class="video-js"
+  controls
+  preload="auto"
+  poster=""
+  data-setup="{}">
+  <source src="" type="video/mp4" id="sorc"/>
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
 <script>
-    var urlquery = location.search;
+var urlquery = location.search;
 console.log(urlquery);
 var res = urlquery.slice(5, 120000);
 console.log(res);
 var player = document.getElementById('my-video');
 var playersrc = document.getElementById('sorc');
 playersrc.setAttribute("src", res);
-</script>
-<body>
-  <video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="100%"
-    height="100%"
-    poster=""
-    data-setup="{}">
-    <source src="" type="video/mp4" id="sorc"/>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
+</script></body>
