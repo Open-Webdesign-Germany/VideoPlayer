@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+
+<meta charset="UTF-8">
+
 <head>
 <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet" />
 <script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
@@ -7,36 +8,67 @@
   #my-video{
     width: 100%;
     height: 100%;
+    position: fixed;
   }
   body{
     margin: 0px;
+    height: 100%;
+    widdth: 100%;
   }
-  </style>
-  <!--Player Style-->
-  <link rel="stylesheet" href="player.css"/>
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script>
+
 <title>Embedded Video Player</title>
 </head>
 <body>
 <video  id="my-video"
-  class="video-js"
+  class="video-js vjs-theme-city"
   controls
   preload="auto"
   poster=""
   data-setup="{}">
-  <source src="" type="video/mp4" id="sorc"/>
+  <source src="" type="video/youtube" id="sorc"/>
   <p class="vjs-no-js">
     To view this video please enable JavaScript, and consider upgrading to a
     web browser that
     <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
   </p>
 </video>
+<style>
+  /* modified copy of https://unpkg.com/@videojs/themes@1/dist/city/index.css*/
+  .vjs-theme-city{--vjs-theme-city--primary: aqua;--vjs-theme-city--secondary: black}.vjs-theme-city .vjs-control-bar{height:70px;padding-top:20px;background:none;background-image:linear-gradient(0deg,#000,transparent)}.vjs-theme-city .vjs-button>.vjs-icon-placeholder:before{line-height:50px}.vjs-theme-city .vjs-play-progress:before{display:none}.vjs-theme-city .vjs-progress-control{position:absolute;top:0;right:0;left:0;width:100%;height:20px}.vjs-theme-city .vjs-progress-control .vjs-progress-holder{position:absolute;top:20px;right:0;left:0;width:100%;margin:0}.vjs-theme-city .vjs-play-progress{background-color:var(--vjs-theme-city--primary)}.vjs-theme-city .vjs-remaining-time{order:1;line-height:50px;flex:3;text-align:left}.vjs-theme-city .vjs-play-control{order:2;flex:8;font-size:1.75em}.vjs-theme-city .vjs-fullscreen-control,.vjs-theme-city .vjs-picture-in-picture-control,.vjs-theme-city .vjs-volume-panel{order:3;flex:1}.vjs-theme-city .vjs-volume-panel:hover .vjs-volume-control.vjs-volume-horizontal{height:100%}.vjs-theme-city .vjs-mute-control{display:none}.vjs-theme-city .vjs-volume-panel{margin-left:.5em;margin-right:.5em;padding-top:1.5em}.vjs-theme-city .vjs-volume-bar.vjs-slider-horizontal,.vjs-theme-city .vjs-volume-panel,.vjs-theme-city .vjs-volume-panel.vjs-volume-panel-horizontal:hover,.vjs-theme-city .vjs-volume-panel:active .vjs-volume-control.vjs-volume-horizontal,.vjs-theme-city .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-horizontal,.vjs-theme-city .vjs-volume-panel:hover,.vjs-theme-city .vjs-volume-panel:hover .vjs-volume-control.vjs-volume-horizontal{width:3em}.vjs-theme-city .vjs-volume-level:before{font-size:1em}.vjs-theme-city .vjs-volume-panel .vjs-volume-control{opacity:1;width:100%;height:100%}.vjs-theme-city .vjs-volume-bar{background-color:transparent;margin:0}.vjs-theme-city .vjs-slider-horizontal .vjs-volume-level{height:100%}.vjs-theme-city .vjs-volume-bar.vjs-slider-horizontal{margin-top:0;margin-bottom:0;height:100%}.vjs-theme-city .vjs-volume-bar:before{content:"";z-index:0;width:0;height:0;position:absolute;top:0;left:0;border-color:transparent transparent hsla(0,0%,100%,.25);border-style:solid;border-width:0 0 1.75em 3em}.vjs-theme-city .vjs-volume-level{overflow:hidden;background-color:transparent}.vjs-theme-city .vjs-volume-level:before{content:"";z-index:1;width:0;height:0;position:absolute;top:0;left:0;border-left:3em solid transparent;border-bottom:1.75em solid var(--vjs-theme-city--secondary);border-right:0 solid transparent;border-top:0 solid transparent}
+  .vjs-theme-city .vjs-big-play-button{
+    color: black;
+    background: aqua;
+    left: 47%;
+    height: 50px;
+    width: 50px;
+    top: 47%;
+    line-height: 50px;
+    border: none;
+    border-radius: 50px;
+  }
+  .vjs-theme-city .vjs-big-play-button:hover{
+    color: black;
+    background: aqua;
+    left: 47%;
+    top: 47%;
+    border: none;
+  }
+  .vjs-theme-city{
+    color: aqua;
+  }
+
+</style>
 <script>
 var urlquery = location.search;
 console.log(urlquery);
-var res = urlquery.slice(5, 120000);
+var res = "" + urlquery.slice(5, 120000);
 console.log(res);
 var player = document.getElementById('my-video');
 var playersrc = document.getElementById('sorc');
 playersrc.setAttribute("src", res);
-</script></body>
-  <link rel="stylesheet" href="player.css"/>
+</script>
+</body>
