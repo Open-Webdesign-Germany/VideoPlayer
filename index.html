@@ -4,16 +4,23 @@
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
+<script>
+    var urlquery = location.search;
+console.log(urlquery);
+var res = urlquery.slice(5, 120000);
+console.log(res);
+var player = document.getElementById('my-video');
 
+</script>
 <body>
   <video
     id="my-video"
     class="video-js"
     controls
     preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
+    width="100%"
+    height="100%"
+    poster=""
     data-setup="{}"
   >
     <source src="MY_VIDEO.mp4" type="video/mp4" />
